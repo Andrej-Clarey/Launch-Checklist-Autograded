@@ -4,7 +4,7 @@ require('cross-fetch/polyfill');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
     // Here is the HTML formatting for our mission target div.
-    /*
+    
                  <h2>Mission Destination</h2>
                  <ol>
                      <li>Name: </li>
@@ -13,12 +13,12 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
                      <li>Distance from Earth: </li>
                      <li>Number of Moons: </li>
                  </ol>
-                 <img src="">
-    */
- }
+                 <img src=""></img>
+
+ };
  
  function validateInput(testInput) {
-        if(testInput==""){
+        if(testInput===""){
             return "Empty"
         }else if(isNaN(testInput)===false){
             return "Is a Number"
@@ -38,15 +38,16 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
     let cargoStatus = document.getElementById("cargoStatus");
     let launchStatus = document.getElementById("launchStatus");
     // let list = document.getElementById("faultyItems")
-    
+
+
 
     if(validateInput(pilot)==="Empty" || validateInput(copilot)==="Empty" || validateInput(fuelLevel)==="Empty" || validateInput(cargoLevel)==="Empty" ){
-        // alert("All Fields Must Be Filled Out!");
+        alert("All Fields Must Be Filled Out!");
     }else if(validateInput(pilot)==="Is a Number" || validateInput(copilot)==="Is a Number" || validateInput(fuelLevel)==="Not a Number" || validateInput(cargoLevel)==="Not a Number"){
         alert("All Fields Must Have a Valid Input!");
-    }else{
-        pilotStatus.innerHTML = `Pilot ${pilot} is Ready!`;
-        copilotStatus.innerHTML = `Co-Pilot ${copilot} is Ready`;
+    } else {
+        pilotStatus.innerHTML = `Pilot ${pilot} is ready for launch`;
+        copilotStatus.innerHTML = `Co-pilot ${copilot} is ready for launch`;
         list.style.visibility = "hidden";
     };
    
@@ -81,6 +82,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
      let planetsReturned;
  
      planetsReturned = await fetch('https://handlers.education.launchcode.org/static/planets.json').then( function(response) {
+        return response.json()
          });
  
      return planetsReturned;
