@@ -36,11 +36,12 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
     let copilotStatus = document.getElementById("copilotStatus");
     let fuelStatus = document.getElementById("fuelStatus");
     let cargoStatus = document.getElementById("cargoStatus");
+    let launchStatus = document.getElementById("launchStatus");
     // let list = document.getElementById("faultyItems")
     
 
     if(validateInput(pilot)==="Empty" || validateInput(copilot)==="Empty" || validateInput(fuelLevel)==="Empty" || validateInput(cargoLevel)==="Empty" ){
-        // alert("All Fields Must Be Filled Out!");
+        alert("All Fields Must Be Filled Out!");
     }else if(validateInput(pilot)==="Is a Number" || validateInput(copilot)==="Is a Number" || validateInput(fuelLevel)==="Not a Number" || validateInput(cargoLevel)==="Not a Number"){
         alert("All Fields Must Have a Valid Input!");
     }else{
