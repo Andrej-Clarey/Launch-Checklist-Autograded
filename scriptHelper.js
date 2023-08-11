@@ -8,11 +8,11 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
     missionTarget.innerHTML = `
                <h2>Mission Destination</h2>
                     <ol>
-                     <li> ${name} </li>
-                     <li> ${diameter} </li>
+                     <li>Name: ${name} </li>
+                     <li>Diameter: ${diameter} </li>
                      <li>Star: ${star}</li>
-                     <li> ${distance} </li>
-                     <li> ${moons}</li>
+                     <li>Distance from Earth: ${distance} </li>
+                     <li>Number of Moons: ${moons}</li>
                     </ol>
                  <img src=${imageUrl}></img>
 `
@@ -33,7 +33,7 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 
  function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     
-    preventDefault();
+    // event.preventDefault();
 
     let pilotStatus = document.getElementById("pilotStatus");
     let copilotStatus = document.getElementById("copilotStatus");
