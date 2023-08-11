@@ -4,17 +4,18 @@ require('cross-fetch/polyfill');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
     // Here is the HTML formatting for our mission target div.
-    
-                 <h2>Mission Destination</h2>
-                 <ol>
-                     <li>Name: </li>
-                     <li>Diameter: </li>
+    let missionTarget = document.getElementById('missionTarget');
+    missionTarget.innerHTML = `
+               <h2>Mission Destination</h2>
+                    <ol>
+                     <li> ${name} </li>
+                     <li> ${diameter} </li>
                      <li>Star: ${star}</li>
-                     <li>Distance from Earth: </li>
-                     <li>Number of Moons: </li>
-                 </ol>
-                 <img src=""></img>
-
+                     <li> ${distance} </li>
+                     <li> ${moons}</li>
+                    </ol>
+                 <img src=${imageUrl}></img>
+`
  };
  
  function validateInput(testInput) {
@@ -32,6 +33,8 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 
  function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     
+    preventDefault();
+
     let pilotStatus = document.getElementById("pilotStatus");
     let copilotStatus = document.getElementById("copilotStatus");
     let fuelStatus = document.getElementById("fuelStatus");
@@ -89,6 +92,9 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
  }
  
  function pickPlanet(planets) {
+    let randomPlanet = Math.floor(Math.random()*6)
+    return(planets[randomPlanet])
+    
  }
  
  module.exports.addDestinationInfo = addDestinationInfo;
